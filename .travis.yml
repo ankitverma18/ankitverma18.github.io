@@ -1,0 +1,26 @@
+language: ruby
+rvm:
+  - 2.7.0
+
+install:
+  - bundle install
+  - gem install jekyll
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - JEKYLL_ENV=production
+
+notifications:
+  email:
+    recipients:
+      - ankit.vermanpic@gmail.com
+    on_success: always
+    on_failure: always
+
+script:
+  - chmod +x _scripts/build.sh
+  - _scripts/build.sh
